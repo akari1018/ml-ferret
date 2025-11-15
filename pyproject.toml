@@ -13,19 +13,32 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
 ]
 dependencies = [
-    "einops", "fastapi", "gradio==4.31.3", "markdown2[all]", "numpy",
-    "requests", "sentencepiece", "tokenizers>=0.12.1",
-    "torch", "torchvision", "uvicorn", "wandb",
-    "shortuuid", "httpx==0.24.0",
+    # --- Core ML/Data Libraries ---
+    "torch",
+    "torchvision",
+    "numpy",
+    "tokenizers>=0.12.1",
+    "timm>=0.6.13",
+    "scikit-learn>=1.5.0",
+    "einops>=0.6.1",
+    "einops-exts>=0.0.4",
+    "sentencepiece>=0.1.99",
+    # --- High-Risk Pinned Dependencies (Updated for CUDA 12.8 compatibility) ---
     "deepspeed==0.9.5",
     "peft==0.4.0",
-    "transformers @ git+https://github.com/huggingface/transformers.git@cae78c46",
     "accelerate==0.21.0",
-    "bitsandbytes==0.41.0",
-    "scikit-learn==1.5.0",
-    "sentencepiece==0.1.99",
-    "einops==0.6.1", "einops-exts==0.0.4", "timm==0.6.13", "openai",
-    "gradio_client==0.1.2"
+    "bitsandbytes>=0.43.0",  # Updated to support newer CUDA versions
+    "transformers @ git+https://github.com/huggingface/transformers.git@cae78c46",
+    # --- Web/API and Utility Libraries ---
+    "fastapi",
+    "uvicorn",
+    "requests",
+    "httpx>=0.24.0",
+    "gradio==3.50.2",
+    "shortuuid",
+    "markdown2[all]",
+    "openai",
+    "wandb",
 ]
 
 [project.urls]
